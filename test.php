@@ -40,6 +40,8 @@ use Test\MediatorMode\UserConcrete\ChatUser;
 use Test\BridgeMode\ConcreteBridge\RefinedAbstraction;
 use Test\BridgeMode\ConcreteBridged\ConcreteImplementorA;
 use Test\BridgeMode\ConcreteBridged\ConcreteImplementorB;
+use Test\CompositeMode\Concrete\Composite;
+use Test\CompositeMode\Concrete\Leaf;
 
 require 'vendor/autoload.php';
 
@@ -240,3 +242,20 @@ echo '<br>';
 $abstraction = new RefinedAbstraction(new ConcreteImplementorB());
 $abstraction->operation();
 /******************* 16、测试桥接模式（end） **********************/
+
+
+/******************* 17、测试合成模式（start） **********************/
+echo '<br>';
+$leaf1 = new Leaf('第一个叶子');
+$leaf2 = new Leaf('第二个叶子');
+
+$composite = new Composite();
+$composite->add($leaf1);
+$composite->add($leaf2);
+$composite->operation();
+echo '<br>';
+
+$composite->remove($leaf2);
+$composite->operation();
+echo '<br>';
+/******************* 17、测试合成模式（end） **********************/
