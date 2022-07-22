@@ -37,6 +37,9 @@ use Test\VisitorMode\VisitorConcrete\GreenHandVisitor;
 use Test\StateMode\Context\Work;
 use Test\MediatorMode\MediatorConcrete\ChatMediator;
 use Test\MediatorMode\UserConcrete\ChatUser;
+use Test\BridgeMode\ConcreteBridge\RefinedAbstraction;
+use Test\BridgeMode\ConcreteBridged\ConcreteImplementorA;
+use Test\BridgeMode\ConcreteBridged\ConcreteImplementorB;
 
 require 'vendor/autoload.php';
 
@@ -227,3 +230,13 @@ echo '<br>';
 $u3->send('欢迎！');
 echo '<br>';
 /******************* 15、测试中介者模式（end） **********************/
+
+
+/******************* 16、测试桥接模式（start） **********************/
+echo '<br>';
+$abstraction = new RefinedAbstraction(new ConcreteImplementorA());
+$abstraction->operation();
+echo '<br>';
+$abstraction = new RefinedAbstraction(new ConcreteImplementorB());
+$abstraction->operation();
+/******************* 16、测试桥接模式（end） **********************/
